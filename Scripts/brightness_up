@@ -1,0 +1,8 @@
+#!/bin/bash
+
+xrandr --output eDP1 --brightness `xrandr --verbose | awk "FNR == 7 { printf \"x=%s + 0.1; if (x > 1.0) x = 1.0; x\n\",\\\$2 }" | bc -q`
+
+
+
+
+

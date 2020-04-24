@@ -15,7 +15,7 @@ set statusline=%-8(%l:%v%)%t
 set laststatus=2
 set mouse=a
 set mousefocus
-colorscheme chlordane2
 set colorcolumn=81
 set syntax=on
-let g:powerline_loaded=1
+syntax on
+
