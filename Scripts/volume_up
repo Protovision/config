@@ -1,4 +1,4 @@
 #!/bin/bash
 
-amixer set Master 7+
+amixer -M set Master 10%+
 

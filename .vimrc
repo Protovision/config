@@ -17,5 +17,6 @@ set mouse=a
 set mousefocus
 set colorcolumn=81
 set syntax=on
+colorscheme chlordane2
 syntax on
 

@@ -1,9 +1,24 @@
-*faceName: Fira Code
-*faceSize: 12
+*faceName: Terminus
+*faceSize: 16
 *scrollBar: false
 
-*foreground: #cccccc
+*foreground: #55af66
 *background: #111111
-*cursorColor: #cccccc
+*cursorColor: #3a553a
 *transparent: 0
-
+*color0: #111111 
+*color1: #55af66
+*color2: #55af66
+*color3: #55af66
+*color4: #55af66
+*color5: #55af66
+*color6: #55af66
+*color7: #55af66
+*color8: #55af66
+*color9: #55af66
+*color10: #55af66
+*color11: #55af66
+*color12: #55af66
+*color13: #55af66
+*color14: #55af66
+*color15: #55af66

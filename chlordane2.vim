@@ -20,25 +20,25 @@ let g:colors_name = 'chlordane2'
 
 hi Cursor	ctermfg=22 guifg=#3a553a ctermbg=114 guibg=#77dd88
 hi lCursor	ctermfg=22 guifg=#3a553a ctermbg=114 guibg=#77dd88
-hi CursorLine	ctermbg=0 guibg=#000000 gui=underline
+hi CursorLine	ctermbg=0 guibg=#111111 gui=underline
 hi CursorIM	ctermfg=22 guifg=#3a553a ctermbg=114 guibg=#77dd88
-hi Directory	ctermfg=114 guifg=#77dd88 ctermbg=0 guibg=#000000 gui=bold
+hi Directory	ctermfg=114 guifg=#77dd88 ctermbg=0 guibg=#111111 gui=bold
 hi DiffAdd	ctermfg=114 guifg=#77dd88 ctermbg=22 guibg=#3a553a gui=none
 hi DiffChange	ctermfg=114 guifg=#77dd88 ctermbg=22 guibg=#3a553a gui=none
 hi DiffDelete	ctermfg=22 guifg=#223322 ctermbg=22 guibg=#223322 gui=none
 hi DiffText	ctermfg=114 guifg=#77dd88 ctermbg=65 guibg=#448844 gui=bold
-hi ErrorMsg	ctermfg=12 guifg=#ee1111 ctermbg=0 guibg=#000000
+hi ErrorMsg	ctermfg=12 guifg=#ee1111 ctermbg=0 guibg=#111111
 hi VertSplit	ctermfg=22 guifg=#223322 ctermbg=22 guibg=#223322
-hi Folded	ctermfg=71 guifg=#55af66 ctermbg=0 guibg=#000000
+hi Folded	ctermfg=71 guifg=#55af66 ctermbg=0 guibg=#111111
 hi FoldColumn	ctermfg=65 guifg=#557755 ctermbg=22 guibg=#102010
 hi IncSearch	ctermfg=22 guifg=#3a553a ctermbg=114 guibg=#77dd88 gui=none
-hi LineNr	ctermfg=65 guifg=#446644 ctermbg=0 guibg=#000000 gui=none
-hi ModeMsg	ctermfg=71 guifg=#55af66 ctermbg=0 guibg=#000000
-hi MoreMsg	ctermfg=71 guifg=#55af66 ctermbg=0 guibg=#000000
-hi Normal	ctermfg=71 guifg=#55af66 ctermbg=0 guibg=#000000
-hi Question	ctermfg=71 guifg=#55af66 ctermbg=0 guibg=#000000
+hi LineNr	ctermfg=65 guifg=#446644 ctermbg=0 guibg=#111111 gui=none
+hi ModeMsg	ctermfg=71 guifg=#55af66 ctermbg=0 guibg=#111111
+hi MoreMsg	ctermfg=71 guifg=#55af66 ctermbg=0 guibg=#111111
+hi Normal	ctermfg=71 guifg=#55af66 ctermbg=0 guibg=#111111
+hi Question	ctermfg=71 guifg=#55af66 ctermbg=0 guibg=#111111
 hi Search	ctermfg=22 guifg=#223322 ctermbg=71 guibg=#55af66 gui=none
-hi NonText	ctermfg=241 guifg=#606060 ctermbg=none guibg=none
+hi NonText	ctermfg=241 guifg=#606060 ctermbg=0 guibg=#111111
 hi SpecialKey	ctermfg=22 guifg=#707070
 "\n, \0, %d, %s, etc...
 hi Special	ctermfg=71 guifg=#55af66 ctermbg=23 guibg=#223333 gui=bold
@@ -47,9 +47,9 @@ hi StatusLine	ctermfg=65 guifg=#88ee99 ctermbg=0 guibg=#447f55 gui=bold
 hi StatusLineNC term=bold cterm=bold,underline ctermfg=green ctermbg=Black
 hi StatusLineNC term=bold gui=bold,underline ctermfg=22 guifg=#3a553a  guibg=Black
 hi Title	ctermfg=114 guifg=#77dd88 ctermbg=22 guibg=#223322 gui=bold
-hi Visual	ctermfg=0  guifg=#000000 ctermbg=28 guibg=#448844 gui=none
-hi VisualNOS	ctermfg=71 guifg=#55af66 ctermbg=0 guibg=#000000
-hi WarningMsg	ctermfg=114 guifg=#77dd88 ctermbg=0 guibg=#000000
+hi Visual	ctermfg=0  guifg=#111111 ctermbg=28 guibg=#448844 gui=none
+hi VisualNOS	ctermfg=71 guifg=#55af66 ctermbg=0 guibg=#111111
+hi WarningMsg	ctermfg=114 guifg=#77dd88 ctermbg=0 guibg=#111111
 hi WildMenu	ctermfg=22 guifg=#3a553a ctermbg=114 guibg=#77dd88
 hi Number	ctermfg=114 guifg=#77dd88 ctermbg=238 guibg=#354535
 hi Char		ctermfg=114 guifg=#77dd88 ctermbg=238 guibg=#354535
@@ -67,9 +67,9 @@ hi Function     ctermfg=114 guifg=#77dd88
 hi PreProc	ctermfg=114 guifg=#77dd88 gui=bold
 hi Type		ctermfg=114 guifg=#77dd88 gui=bold
 hi Underlined	ctermfg=114 guifg=#77dd88 gui=underline
-hi Error	ctermfg=12 guifg=#ee1111 ctermbg=0 guibg=#000000
+hi Error	ctermfg=12 guifg=#ee1111 ctermbg=0 guibg=#111111
 hi Todo		ctermfg=22 guifg=#223322 ctermbg=71 guibg=#55af66 gui=none
-hi SignColumn   ctermbg=0 guibg=#000000
+hi SignColumn   ctermbg=0 guibg=#111111
 
 if version >= 700
   " Pmenu
@@ -84,5 +84,5 @@ if version >= 700
 endif
 
 hi ColorColumn ctermbg=238 guibg=#354535
-hi MatchParen cterm=bold ctermfg=0 guifg=#000000 ctermbg=227 guibg=#ffff5f
+hi MatchParen cterm=bold ctermfg=0 guifg=#111111 ctermbg=227 guibg=#ffff5f
 
