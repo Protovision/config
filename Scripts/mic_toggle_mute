@@ -1,9 +1,0 @@
-#!/bin/bash
-
-STATUS=`amixer get 'Mic Mute-LED Mode' | awk "FNR == 4 { printf \"%s\",\\\$2 }"`
-if [[ $STATUS == "'On'" ]]; then
-	amixer set 'Mic Mute-LED Mode' Off
-else
-	amixer set 'Mic Mute-LED Mode' On
-fi
-

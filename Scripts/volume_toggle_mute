@@ -1,9 +1,0 @@
-#!/bin/bash
-
-STATUS=`amixer get Master | awk "FNR == 5 { printf \"%s\",\\\$6 }"`
-if [[ $STATUS == '[on]' ]]; then
-	amixer set Master mute
-else
-	amixer set Master unmute
-fi
-
