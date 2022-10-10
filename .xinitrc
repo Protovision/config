@@ -1,8 +1,8 @@
 #!/bin/sh
 setxkbmap us
-amixer set Master 37db
+pactl set-sink-volume 0 100%
 brightnessctl s 20%
-feh --bg-max '/home/mark/images/wallpaper.jpg'
+feh --bg-scale '/home/mark/images/wallpaper.png'
 slstatus &
 exec dwm
 
