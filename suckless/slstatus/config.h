@@ -1,10 +1,10 @@
 /* See LICENSE file for copyright and license details. */
 
 /* interval between updates (in ms) */
-const unsigned int interval = 5000;
+const unsigned int interval = 3000;
 
 /* text to show if no value can be retrieved */
-static const char unknown_str[] = "NULL";
+static const char unknown_str[] = "";
 
 /* maximum output string length */
 #define MAXLEN 2048
@@ -64,33 +64,10 @@ static const char unknown_str[] = "NULL";
  * wifi_essid          WiFi ESSID                      interface name (wlan0)
  */
 static const struct arg args[] = {
-	/* function format          argument */
-	/*
-	{ disk_perc, "             DISK:%4s%%", "/" },
-	{ separator, "%s", " | " },
-	{ cpu_perc, "CPU:%4s%%", NULL },
-	{ separator, "%s", " | " },
-	{ ram_perc, "RAM:%4s%%", NULL },
-	{ separator, "%s", " | " },
-	{ run_command, "VOL:%6s", "amixer get Master | awk 'NR == 5 { print substr($4, 2, length($4) - 3), substr($6, 2, length($6) - 2) }' | (read volume status; if [ $status = 'off' ]; then echo -n MUTED; else echo -n $volume%; fi)" },
-	{ separator, "%s", " | " },
-	{ run_command, "MON:%4s%%", "brightnessctl i | awk 'NR == 2 { print substr($4, 2, length($4) - 3) }'" },
-	{ separator, "%s", " | " },
-	{ battery_perc, "BAT:%4s%%", "BAT0" },
-	{ battery_state, "%s", "BAT0" },
-	{ separator, "%s", " | " },
-	{ wifi_perc, "WIFI:%4s%%", "wlan0" },
-	{ separator, "%s", " | " },
-	{ netspeed_tx, "TX:%8s", "wlan0" },
-	{ separator, "%s", " | " },
-	{ netspeed_rx, "RX:%8s", "wlan0" },
-	{ separator, "%s", " | " },
-	{ datetime, "%s", "DATE: %F | TIME: %T " }
-	*/
-	{ battery_perc, " POWER: %3s%%", "BAT0" },
-	{ battery_state, "%s", "BAT0" },
-	{ separator, "%s", " | " },
-	{ wifi_perc, "WIFI: %3s%%", "wlan0" },
-	{ separator, "%s", " | " },
-	{ datetime, "TIME: %s ", "%F %w %R" }
+	{ battery_perc, " POWER: %3.3s%%", "BAT0" },
+	{ battery_state, "%1.1s", "BAT0" },
+	{ separator , " | " , NULL },
+	{ wifi_essid , "WIFI: %16.16s" , "wlan0" },
+	{ separator, " | ", NULL },
+	{ datetime, "TIME: %16.16s ", "%F %R" }
 };
