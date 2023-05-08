@@ -5,11 +5,11 @@ static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 1;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Terminus:style=Regular:pixelsize=20:antialias=true" };
-static const char dmenufont[]       = "Terminus:style=Regular:pixelsize=20:antialias=true";
-#define MONOCOLOR_BACKGROUND "#111111" 
-#define MONOCOLOR_NORMAL "#55af66"
-#define MONOCOLOR_BRIGHT "#77dd88" 
+static const char *fonts[]          = { "Terminus:style=Regular:pixelsize=23:antialias=true" };
+static const char dmenufont[]       = "Terminus:style=Regular:pixelsize=23:antialias=true";
+#define MONOCOLOR_BACKGROUND "#111111" /*"#151000"*/
+#define MONOCOLOR_NORMAL "#aaaaaa" /*"#906030"*/
+#define MONOCOLOR_BRIGHT "#eeeeee" /*"#c06030"*/
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { MONOCOLOR_NORMAL, MONOCOLOR_BACKGROUND, MONOCOLOR_NORMAL}, 
@@ -51,6 +51,32 @@ static const Layout layouts[] = {
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/bash", "-c", cmd, NULL } }
+
+static const char cmd_vol_up[] = "pactl set-sink-volume 0 +10%";
+static const char cmd_vol_dn[] = "pactl set-sink-volume 0 -10%";
+static const char cmd_vol_mute[] = "pactl set-sink-mute 0 toggle";
+static const char cmd_mic_mute[] = "pactl set-source-mute 1 toggle";
+static const char cmd_brightness_up[] = "brightnessctl s 10%+";
+static const char cmd_brightness_dn[] = "brightnessctl s 10%-";
+static const char cmd_project_toggle[] = 
+	"if [ `xrandr --listactivemonitors | awk '$1 == \"Monitors:\" { print $2; }'` = '1' ];"
+	" then"
+	"  xrandr --output HDMI-1 --auto --scale-from 1920x1080;"
+	"  pactl set-card-profile 0 output:hdmi-stereo+input:analog-stereo;"
+	" else"
+	"  xrandr --output HDMI-1 --off;"
+	"  pactl set-card-profile 0 output:analog-stereo+input:analog-stereo;"
+	" fi";
+static const char cmd_wifi_toggle[] = 
+	"if [ `connmanctl state | awk '$1 == \"OfflineMode\" { print $3; }'` = 'False' ];"
+	" then connmanctl enable offline;"
+	" else connmanctl disable offline;"
+	"fi";
+static const char cmd_bt_toggle[] =
+	"if [ `bluetoothctl show | awk '$1 == \"Powered:\" { print $2; }'` = 'yes' ];"
+	" then bluetoothctl power off;"
+	" else bluetoothctl power on;"
+	"fi";
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
@@ -102,12 +128,15 @@ static Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
-	{ 0, XF86XK_MonBrightnessDown, spawn, SHCMD("brightnessctl s 10%-") },
-	{ 0, XF86XK_MonBrightnessUp, spawn, SHCMD("brightnessctl s +10%") },
-	{ 0, XF86XK_AudioMute, spawn, SHCMD("if [ `amixer get Master | awk 'NR == 5 { print $6 }'` = '[on]' ]; then amixer set Master mute; else amixer set Master unmute; fi")},
-	{ 0, XF86XK_AudioLowerVolume, spawn, SHCMD("amixer set Master 7db-") },
-	{ 0, XF86XK_AudioRaiseVolume, spawn, SHCMD("amixer set Master 7db+") },
-	{ 0, XF86XK_WLAN, spawn, SHCMD("if [ `connmanctl state | awk 'NR == 2 { print $3 }'` = 'False' ]; then connmanctl enable offline; else connmanctl disable offline; fi") }
+	{ 0, XF86XK_MonBrightnessDown, spawn, SHCMD(cmd_brightness_dn) },
+	{ 0, XF86XK_MonBrightnessUp, spawn, SHCMD(cmd_brightness_up) },
+	{ 0, XF86XK_AudioMute, spawn, SHCMD(cmd_vol_mute) },
+	{ 0, XF86XK_AudioLowerVolume, spawn, SHCMD(cmd_vol_dn) },
+	{ 0, XF86XK_AudioRaiseVolume, spawn, SHCMD(cmd_vol_up) },
+	{ 0, XF86XK_AudioMicMute , spawn, SHCMD(cmd_mic_mute) },
+	{ 0, XF86XK_WLAN, spawn, SHCMD(cmd_wifi_toggle) },
+	{ 0, XF86XK_Bluetooth, spawn, SHCMD(cmd_bt_toggle) },
+	{ 0, XF86XK_Display, spawn, SHCMD(cmd_project_toggle) }
 };
 
 /* button definitions */

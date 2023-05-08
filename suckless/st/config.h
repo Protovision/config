@@ -5,7 +5,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Terminus:style=Regular:pixelsize=20:antialias=true";
+static char *font = "Terminus:style=Regular:pixelsize=23:antialias=true";
 static int borderpx = 1;
 
 /*
@@ -93,9 +93,9 @@ char *termname = "xterm-16color"; /*"st-256color";*/
  */
 unsigned int tabspaces = 2;
 
-#define MONOCOLOR_BACKGROUND "#111111" /*"#151000"*/ 
-#define MONOCOLOR_NORMAL "#55af66" /*"#906030"*/ 
-#define MONOCOLOR_BRIGHT "#77dd88" /*"#c06030"*/ 
+#define MONOCOLOR_BACKGROUND "#111111" /*"#151000"*/ /*"#111111"*/
+#define MONOCOLOR_NORMAL "#aaaaaa" /*"#906030"*/ /*"#55af66"*/
+#define MONOCOLOR_BRIGHT "#eeeeee" /*"#c06030"*/ /*"#77dd88"*/
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {

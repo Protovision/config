@@ -14,7 +14,11 @@ set statusline=%y\ %t\ %l:%v
 set laststatus=2
 set colorcolumn=80
 set background=dark
-let g:c_syntax_for_h=1
+let c_syntax_for_h=1
+let c_no_trail_space_error=1
+let c_no_tab_space_error=1
+let c_no_curly_error=1
+let c_no_bracket_error=1
 syntax on
 colorscheme protovision 
 
