@@ -1,19 +1,17 @@
 /* See LICENSE file for copyright and license details. */
 
+# include "../config.h"
+
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 1;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Terminus:style=Regular:pixelsize=23:antialias=true" };
-static const char dmenufont[]       = "Terminus:style=Regular:pixelsize=23:antialias=true";
-#define MONOCOLOR_BACKGROUND "#111111" /*"#151000"*/
-#define MONOCOLOR_NORMAL "#aaaaaa" /*"#906030"*/
-#define MONOCOLOR_BRIGHT "#eeeeee" /*"#c06030"*/
+static const char *fonts[]          = { FONT_FAMILY ":pixelsize=" FONT_SIZE };
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { MONOCOLOR_NORMAL, MONOCOLOR_BACKGROUND, MONOCOLOR_NORMAL}, 
-	[SchemeSel]  = { MONOCOLOR_BACKGROUND, MONOCOLOR_NORMAL, MONOCOLOR_NORMAL}
+	[SchemeNorm] = { COLOR_NORMAL, COLOR_BACKGROUND, COLOR_NORMAL}, 
+	[SchemeSel]  = { COLOR_BACKGROUND, COLOR_BRIGHT, COLOR_BRIGHT}
 };
 
 /* tagging */
@@ -82,11 +80,6 @@ static const char cmd_bt_toggle[] =
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = {
 	"dmenu_run", "-m", dmenumon, 
-	"-fn", dmenufont,
-	"-nb", MONOCOLOR_BACKGROUND,
-	"-nf", MONOCOLOR_NORMAL,
-	"-sb", MONOCOLOR_NORMAL,
-	"-sf", MONOCOLOR_BACKGROUND,
 	NULL
 };
 

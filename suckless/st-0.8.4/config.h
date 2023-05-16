@@ -1,11 +1,13 @@
 /* See LICENSE file for copyright and license details. */
 
+# include "../config.h"
+
 /*
  * appearance
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Terminus:style=Regular:pixelsize=23:antialias=true";
+static char *font = FONT_FAMILY ":pixelsize=" FONT_SIZE;
 static int borderpx = 1;
 
 /*
@@ -93,37 +95,33 @@ char *termname = "xterm-16color"; /*"st-256color";*/
  */
 unsigned int tabspaces = 2;
 
-#define MONOCOLOR_BACKGROUND "#111111" /*"#151000"*/ /*"#111111"*/
-#define MONOCOLOR_NORMAL "#aaaaaa" /*"#906030"*/ /*"#55af66"*/
-#define MONOCOLOR_BRIGHT "#eeeeee" /*"#c06030"*/ /*"#77dd88"*/
-
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
 	/* 8 normal colors */
-	MONOCOLOR_BACKGROUND, /*"black",*/
-	MONOCOLOR_NORMAL, /*"red3",*/
-	MONOCOLOR_NORMAL, /*"green3",*/
-	MONOCOLOR_NORMAL, /*"yellow3",*/
-	MONOCOLOR_NORMAL, /*"blue2",*/
-	MONOCOLOR_NORMAL, /*"magenta3",*/
-	MONOCOLOR_NORMAL, /*"cyan3",*/
-	MONOCOLOR_NORMAL, /*"gray90",*/
+	COLOR_BACKGROUND, /*"black",*/
+	COLOR_NORMAL, /*"red3",*/
+	COLOR_NORMAL, /*"green3",*/
+	COLOR_NORMAL, /*"yellow3",*/
+	COLOR_NORMAL, /*"blue2",*/
+	COLOR_NORMAL, /*"magenta3",*/
+	COLOR_NORMAL, /*"cyan3",*/
+	COLOR_NORMAL, /*"gray90",*/
 
 	/* 8 bright colors */
-	MONOCOLOR_BRIGHT, /*"gray50",*/
-	MONOCOLOR_BRIGHT, /*"red",*/
-	MONOCOLOR_BRIGHT, /*"green",*/
-	MONOCOLOR_BRIGHT, /*"yellow",*/
-	MONOCOLOR_BRIGHT, /*"#5c5cff",*/
-	MONOCOLOR_BRIGHT, /*"magenta",*/
-	MONOCOLOR_BRIGHT, /*"cyan",*/
-	MONOCOLOR_BRIGHT, /*"white",*/
+	COLOR_BRIGHT, /*"gray50",*/
+	COLOR_BRIGHT, /*"red",*/
+	COLOR_BRIGHT, /*"green",*/
+	COLOR_BRIGHT, /*"yellow",*/
+	COLOR_BRIGHT, /*"#5c5cff",*/
+	COLOR_BRIGHT, /*"magenta",*/
+	COLOR_BRIGHT, /*"cyan",*/
+	COLOR_BRIGHT, /*"white",*/
 
 	[255] = 0,
 
 	/* more colors can be added after 255 to use with DefaultXX */
-	MONOCOLOR_BRIGHT, /*"#cccccc",*/
-	MONOCOLOR_BRIGHT, /*"#555555"*/
+	COLOR_BRIGHT, /*"#cccccc",*/
+	COLOR_BRIGHT, /*"#555555"*/
 };
 
 
